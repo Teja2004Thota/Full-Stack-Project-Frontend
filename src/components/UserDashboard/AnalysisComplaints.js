@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../../styles/UserDashboard/AnalysisComplaints.css';
+import apiEndpoints from '../../api';  // Import API file
 
 const AnalysisComplaints = () => {
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ const AnalysisComplaints = () => {
       }
 
       try {
-        const response = await axios.get('http://localhost:5000/api/complaints', {
+        const response = await axios.get(apiEndpoints.complaints, {
           headers: {
             'x-auth-token': token,
           },

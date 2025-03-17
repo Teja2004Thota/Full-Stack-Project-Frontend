@@ -4,6 +4,7 @@ import axios from 'axios';
 import '../../styles/UserDashboard/CoreDashboard.css';
 import SubAdminAnalytics from './SubAdminAnalytics';
 import ResolveComplaint from './ResolveComplaint';
+import apiEndpoints from '../../api'; // Import API file
 
 const SubAdminDashboard = () => {
   const navigate = useNavigate();
@@ -31,7 +32,7 @@ const SubAdminDashboard = () => {
     }
 
     try {
-      const response = await axios.get('http://localhost:5000/api/complaints/subadmin', {
+      const response = await axios.get(apiEndpoints.subAdminComplaints, {
         headers: { 'x-auth-token': token },
       });
       const newComplaints = response.data;

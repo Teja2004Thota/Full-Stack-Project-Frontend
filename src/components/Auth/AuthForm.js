@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../../styles/Auth/AuthForm.css';
+import apiEndpoints from '../../api';  // Import API file
 
 const AuthForm = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -20,8 +21,8 @@ const AuthForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const url = isLogin
-      ? 'http://localhost:5000/api/users/login'
-      : 'http://localhost:5000/api/users/register';
+      ? apiEndpoints.login
+      : apiEndpoints.register;
     try {
       const res = await axios.post(url, isLogin ? { email: formData.email, password: formData.password } : formData);
       

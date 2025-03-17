@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../../styles/UserDashboard/CreateComplaint.css';
+import apiEndpoints from '../../api';  // Import API file
 
 const CreateComplaint = () => {
   const [formData, setFormData] = useState({
@@ -127,7 +128,7 @@ const CreateComplaint = () => {
 
       console.log('Submitting with AI Resolved:', updatedFormData);
 
-      const response = await axios.post('http://localhost:5000/api/complaints/create', updatedFormData, {
+      const response = await axios.post(apiEndpoints.create, updatedFormData, {
         headers: {
           'x-auth-token': token,
           'Content-Type': 'application/json',

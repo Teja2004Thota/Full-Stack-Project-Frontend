@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import '../../styles/UserDashboard/CreateComplaint.css'; // Reusing CreateComplaint.css
+import apiEndpoints from '../../api';  // Import API file
 
 const EditComplaint = () => {
   const { id } = useParams();
@@ -82,7 +83,7 @@ const EditComplaint = () => {
       }
 
       try {
-        const response = await axios.get(`http://localhost:5000/api/complaints/${id}`, {
+        const response = await axios.get(apiEndpoints.complaintById(id), {
           headers: {
             'x-auth-token': token,
           },
@@ -134,7 +135,7 @@ const EditComplaint = () => {
     }
 
     try {
-      const response = await axios.put(`http://localhost:5000/api/complaints/${id}`, formData, {
+      const response = await axios.put(apiEndpoints.complaintById(id), formData, {
         headers: {
           'x-auth-token': token,
           'Content-Type': 'application/json',

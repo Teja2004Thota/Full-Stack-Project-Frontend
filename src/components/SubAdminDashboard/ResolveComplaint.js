@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../../styles/SubAdminDashboard/ResolveComplaint.css'; // Ensure correct path
+import apiEndpoints from '../../api'; // Import API file
 
 const ResolveComplaint = ({ complaints, setComplaints }) => {
   const [selectedComplaint, setSelectedComplaint] = useState('');
@@ -14,7 +15,7 @@ const ResolveComplaint = ({ complaints, setComplaints }) => {
 
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/complaints/${selectedComplaint}`,
+        apiEndpoints.resolveComplaint(selectedComplaint),
         { status, resolutionNotes },
         { headers: { 'x-auth-token': token, 'Content-Type': 'application/json' } }
       );

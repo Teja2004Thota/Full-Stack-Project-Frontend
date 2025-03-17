@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import '../../styles/SubAdminDashboard/SubAdminAnalytics.css';
+import apiEndpoints from '../../api'; // Import API file
 
 const SubAdminAnalytics = ({
   complaints,
@@ -55,7 +56,7 @@ const SubAdminAnalytics = ({
 
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/complaints/${complaintId}`,
+        apiEndpoints.complaintById(complaintId),
         { status: newStatus },
         { headers: { 'x-auth-token': token, 'Content-Type': 'application/json' } }
       );

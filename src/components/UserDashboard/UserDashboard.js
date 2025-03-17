@@ -9,6 +9,7 @@ import CreateComplaint from './CreateComplaint';
 import TrackComplaints from './TrackComplaints';
 import { Pie, Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js';
+import apiEndpoints from '../../api';  // Import API file
 
 ChartJS.register(ArcElement, Tooltip, Legend, BarElement, CategoryScale, LinearScale);
 
@@ -43,7 +44,7 @@ const UserDashboard = () => {
     }
 
     try {
-      const response = await axios.get('http://localhost:5000/api/complaints', {
+      const response = await axios.get(apiEndpoints.complaints, {
         headers: {
           'x-auth-token': token,
         },
@@ -106,7 +107,7 @@ const UserDashboard = () => {
     }
 
     try {
-      await axios.delete(`http://localhost:5000/api/complaints/${complaintId}`, {
+      await axios.delete(apiEndpoints.complaintById(complaintId), {
         headers: {
           'x-auth-token': token,
         },
