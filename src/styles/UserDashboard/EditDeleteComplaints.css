@@ -1,0 +1,77 @@
+.complaint-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 0;
+  }
+  
+  .complaint-card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 100%;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .complaint-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .complaint-card p {
+    margin: 5px 0;
+    color: #1a2a44;
+    font-size: 0.95rem;
+  }
+  
+  .complaint-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: auto;
+  }
+  
+  .edit-complaint-btn {
+    padding: 0.5rem 1rem;
+    background-color: #3c4f2f;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .edit-complaint-btn:hover {
+    background-color: #2e3b23;
+    transform: translateY(-2px);
+  }
+  
+  .delete-complaint-btn {
+    padding: 0.5rem 1rem;
+    background-color: #d32f2f;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .delete-complaint-btn:hover {
+    background-color: #b71c1c;
+    transform: translateY(-2px);
+  }
+  
+  @media (max-width: 768px) {
+    .complaint-grid {
+      grid-template-columns: 1fr;
+    }
+  }

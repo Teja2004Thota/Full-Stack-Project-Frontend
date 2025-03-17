@@ -1,0 +1,36 @@
+.track-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .track-section h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+    color: #1a2a44;
+  }
+  
+  .status-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+  
+  .status-pending {
+    background-color: #fff3cd;
+    color: #856404;
+  }
+  
+  .status-in-progress {
+    background-color: #cce5ff;
+    color: #004085;
+  }
+  
+  .status-solved {
+    background-color: #d4edda;
+    color: #155724;
+  }
